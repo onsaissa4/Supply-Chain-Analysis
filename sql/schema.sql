@@ -1,3 +1,4 @@
+TRUNCATE TABLE shipment, order_details, order_table, product, category, department, customer CASCADE;
 -- customer table
 CREATE TABLE IF NOT EXISTS customer (
     Customer_Id INT PRIMARY KEY,
@@ -70,3 +71,46 @@ CREATE TABLE IF NOT EXISTS shipment (
     Days_for_shipment_scheduled INT,
     shipping_date_typed DATE
 );
+
+SELECT column_name, data_type 
+FROM information_schema.columns 
+WHERE table_name = 'customer';
+SELECT column_name 
+FROM information_schema.columns 
+WHERE table_name = 'shipment';
+
+
+SELECT 'customer' AS table_name, COUNT(*) FROM customer
+UNION ALL
+SELECT 'department', COUNT(*) FROM department
+UNION ALL
+SELECT 'category', COUNT(*) FROM category
+UNION ALL
+SELECT 'product', COUNT(*) FROM product
+UNION ALL
+SELECT 'order_table', COUNT(*) FROM order_table
+UNION ALL
+SELECT 'order_details', COUNT(*) FROM order_details
+UNION ALL
+SELECT 'shipment', COUNT(*) FROM shipment;
+
+-- 1. Customer sample
+SELECT * FROM customer LIMIT 100;
+
+-- 2. Department sample
+SELECT * FROM department LIMIT 100;
+
+-- 3. Category sample
+SELECT * FROM category LIMIT 100;
+
+-- 4. Product sample
+SELECT * FROM product LIMIT 100;
+
+-- 5. Order (order_table) sample
+SELECT * FROM order_table LIMIT 100;
+
+-- 6. Order details sample
+SELECT * FROM order_details LIMIT 100;
+
+-- 7. Shipment sample
+SELECT * FROM shipment LIMIT 100;
