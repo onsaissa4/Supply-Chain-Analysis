@@ -2,16 +2,16 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import to_timestamp, to_date
 import os
 
-# Créer le dossier staging à la racine du projet
+# Create the staging folder at the project root
 os.makedirs("data/staging", exist_ok=True)
 
-# Session Spark
+# Spark Session
 spark = SparkSession.builder.appName("Cleaning").getOrCreate()
 
-# Chargement
+# Loading
 df = spark.read.csv("data/raw/DataCoSupplyChainDataset.csv", header=True, inferSchema=True)
 
-# Suppression des colonnes
+# Drop columns
 drop_cols = [
     'Product Description', 'Order Zipcode', 'Customer Email', 'Customer Password',
     'Product Status', 'Order Customer Id', 'Order Item Cardprod Id', 'Product Category Id',
@@ -19,21 +19,21 @@ drop_cols = [
 ]
 df = df.drop(*drop_cols)
 
-# Conversion des dates
+# Date conversions
 df = df.withColumn("order_date_typed", to_date(to_timestamp("order date (DateOrders)", "M/d/yyyy H:mm"))) \
        .withColumn("shipping_date_typed", to_date(to_timestamp("shipping date (DateOrders)", "M/d/yyyy H:mm")))
 
-# Suppression des lignes avec nulls
+# Drop rows with nulls
 df = df.filter(df["Customer Zipcode"].isNotNull() & df["Customer Lname"].isNotNull())
 
-# Conversion en Pandas
+# Convert to Pandas
 df_pandas = df.toPandas()
 
-# Sauvegarde en Parquet (chemin correct)
+# Save as Parquet (or CSV if Parquet fails , just to ensure the cleaning was done right)
 try:
     df_pandas.to_parquet("data/staging/cleaned.parquet", index=False)
-    print(" Nettoyage terminé – Parquet : data/staging/cleaned.parquet")
+    print("Cleaning completed – Parquet: data/staging/cleaned.parquet")
 except Exception as e:
-    print(f" Erreur Parquet : {e}")
+    print(f"Parquet error: {e}")
     df_pandas.to_csv("data/staging/cleaned.csv", index=False)
-    print(" Nettoyage terminé – CSV : data/staging/cleaned.csv")
+    print("Cleaning completed – CSV: data/staging/cleaned.csv")
