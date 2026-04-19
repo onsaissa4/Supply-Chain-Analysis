@@ -3,4 +3,5 @@ __pycache__/
 *.pyc
 data/raw/*.csv
 .vscode/
-.idea/
+.idea/data/
+data/
