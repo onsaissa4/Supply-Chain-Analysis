@@ -1,16 +1,30 @@
+Here is the final `CONTRIBUTING.md` in English, based on your workflow and including the commit message convention.
+
+```markdown
 # Contributing
+
 ## Branches
 
-- **main** – code final (uniquement à la fin du projet).
-- **dev** – branche d'intégration. Chaque sprint est fusionné ici après complétion.
-- **sprint-1** … **sprint-7** – branches pour chaque sprint.
-- **task/*** – branches temporaires pour les tâches individuelles.
+- **main** – final code (only at the end of the project).
+- **dev** – integration branch. Each sprint is merged here after completion.
+- **sprint-1** … **sprint-6** – branches for each sprint.
+- **task/*** – temporary branches for individual tasks (e.g., `task/ons-pandas-eda`).
 
 ## Workflow
 
-1. Toujours partir de la branche sprint courante (ex: `sprint-1`).
-2. Créer une branche `task/` (ex: `task/ons-pandas-eda`).
-3. Travailler sur cette branche, committer et pousser.
-4. Ouvrir une Pull Request vers la branche sprint.
-5. L'autre membre de l'équipe révise et fusionne.
-6. Une fois le sprint terminé, fusionner la branche sprint dans `dev`.
+1. Always start from the current sprint branch (e.g., `sprint-1`).
+2. Create a `task/` branch (e.g., `task/ons-pandas-eda`).
+3. Work on that branch, commit, and push.
+4. Open a Pull Request (PR) towards the sprint branch.
+5. The other team member reviews and merges.
+6. Once the sprint is finished, merge the sprint branch into `dev`.
+
+
+## Pull Request Process
+
+- Every PR must be reviewed by the other team member.
+- After approval, the reviewer merges the PR (or the author merges if the reviewer has no write permissions).
+- Delete the `task/` branch after merging.
+```
+
+You can replace your existing `CONTRIBUTING.md` with this version. It is final and in English.
