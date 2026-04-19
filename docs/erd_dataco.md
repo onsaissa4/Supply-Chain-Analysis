@@ -1,5 +1,4 @@
-# ERD — DataCo Smart Supply Chain 
-
+# ERD 
 
 ```mermaid
 erDiagram

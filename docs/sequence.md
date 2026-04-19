@@ -1,5 +1,4 @@
-# Sequence Diagram – DataCo Supply Chain Project
-
+# Sequence Diagram 
 
 
 ```mermaid
