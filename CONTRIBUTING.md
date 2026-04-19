@@ -1,6 +1,3 @@
-Here is the final `CONTRIBUTING.md` in English, based on your workflow and including the commit message convention.
-
-```markdown
 # Contributing
 
 ## Branches
@@ -24,7 +21,3 @@ Here is the final `CONTRIBUTING.md` in English, based on your workflow and inclu
 
 - Every PR must be reviewed by the other team member.
 - After approval, the reviewer merges the PR (or the author merges if the reviewer has no write permissions).
-- Delete the `task/` branch after merging.
-```
-
-You can replace your existing `CONTRIBUTING.md` with this version. It is final and in English.

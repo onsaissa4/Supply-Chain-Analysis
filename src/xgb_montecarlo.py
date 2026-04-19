@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 
 # PostgreSQL connection (change password!)
 DB_USER = "postgres"
-DB_PASSWORD = "123456"
+DB_PASSWORD = "ons"
 DB_HOST = "localhost"
 DB_PORT = "5432"
 DB_NAME = "supply_chain"
